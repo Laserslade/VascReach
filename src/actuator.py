@@ -51,6 +51,45 @@ def rank_candidates(G: nx.Graph, outlet_order: list, K: int = 4, beta: float = n
     return scored
 
 
+def eligible_placements(G: nx.Graph, K: int = 4) -> list:
+    eligible = sorted(eligible_actuator_edges(G), key=lambda e: (e[0], e[1]))
+    return list(itertools.combinations(eligible, K))
+
+
+def sample_placements(G: nx.Graph, K: int = 4, budget: int = 100, seed: int = 0) -> list:
+    all_p = eligible_placements(G, K)
+    if len(all_p) <= budget:
+        return all_p
+    rng = np.random.default_rng(seed)
+    idx = np.sort(rng.choice(len(all_p), size=budget, replace=False))
+    return [all_p[i] for i in idx]
+
+
+def select_placement_nonlinear(G: nx.Graph, outlet_order: list, screening_demands: list,
+                                K: int = 4, budget: int = 100, seed: int = 0,
+                                beta: float = np.log(2.0), cache: dict | None = None) -> dict:
+    placements = sample_placements(G, K, budget, seed)
+    evaluated = []
+    for p in placements:
+        key = tuple(sorted(p))
+        if cache is not None and key in cache:
+            err = cache[key]
+        else:
+            err = evaluate_candidate(G, list(p), outlet_order, screening_demands, beta)
+            if cache is not None:
+                cache[key] = err
+        evaluated.append((err, tuple(sorted(p))))
+
+    evaluated.sort(key=lambda t: (t[0], t[1]))
+    best_error, best_candidate = evaluated[0]
+    return {
+        "candidate": list(best_candidate),
+        "mean_error": best_error,
+        "n_evaluated": len(placements),
+        "all": evaluated,
+    }
+
+
 def frozen_screening_demand_set(n_outlets: int = 8, n_directions: int = 10, seed: int = 999999,
                                  severity_fraction: float = 0.5):
     lib = dem.generate_demand_library(n_outlets=n_outlets, n_directions=n_directions, seed=seed)

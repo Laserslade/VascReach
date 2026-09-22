@@ -1,0 +1,5 @@
+family,candidate,mean_error,n_evaluated,budget,seed
+symmetric_tree,"[('in', 'in1'), ('in0', 'in00'), ('in1', 'in11'), ('in10', 'out4')]",0.042489865130278956,100,100,424242
+murray_tree,"[('in', 'in1'), ('in0', 'in00'), ('in1', 'in11'), ('in10', 'out4')]",0.050385830810724744,100,100,424242
+looped_hierarchical,"[('in', 'in0'), ('in0', 'in01'), ('in1', 'in10'), ('in1', 'in11')]",0.05025967804202978,100,100,424242
+grid_lattice,"[('in', 'mid11'), ('in', 'mid8'), ('mid4', 'in'), ('out6', 'mid14')]",0.05431827674653111,100,100,424242
