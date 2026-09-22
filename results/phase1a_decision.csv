@@ -1,0 +1,11 @@
+item,value
+total_rays,240
+total_severity_points,9600
+rays_with_primary_reentry,2
+reentry_rays,symmetric_tree/variant1/direction1; symmetric_tree/variant1/direction3
+verification_method,differential_evolution + L-BFGS-B polish
+verification_points_checked,6 (deduplicated across shared rho=0 target)
+verification_agreement,exact match to displayed precision at all 6 points
+mechanism,"smooth unimodal (U-shaped) E*(rho) curve crossing epsilon=0.01 twice; jittered network's own baseline output does not match b, so E*(0) sits just above epsilon, dips below it at moderate severity, then rises monotonically thereafter"
+decision,accessibility is NOT universally interval-like; s_crit is NOT adopted as primary representation; A_G(s;epsilon) remains the primary representation
+secondary_events_further_verified,"0 (per frozen decision rule, not required once primary re-entry is confirmed)"

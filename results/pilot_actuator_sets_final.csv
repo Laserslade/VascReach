@@ -1,0 +1,13 @@
+family,variant,candidate,mean_error,n_evaluated,elapsed
+symmetric_tree,0,"[('in', 'in1'), ('in0', 'in00'), ('in1', 'in11'), ('in10', 'out4')]",0.04249,reused,0.0
+symmetric_tree,1,"[('in', 'in0'), ('in0', 'in00'), ('in1', 'in11'), ('in11', 'out6')]",0.0409,100,54.6
+symmetric_tree,2,"[('in', 'in1'), ('in0', 'in00'), ('in1', 'in11'), ('in10', 'out4')]",0.04159,100,54.3
+murray_tree,0,"[('in', 'in1'), ('in0', 'in00'), ('in1', 'in11'), ('in10', 'out4')]",0.05039,reused,0.0
+murray_tree,1,"[('in', 'in1'), ('in0', 'in00'), ('in1', 'in11'), ('in10', 'out4')]",0.04982,100,56.3
+murray_tree,2,"[('in', 'in1'), ('in0', 'in00'), ('in1', 'in11'), ('in10', 'out4')]",0.04912,100,55.2
+looped_hierarchical,0,"[('in', 'in0'), ('in0', 'in01'), ('in1', 'in10'), ('in1', 'in11')]",0.05026,reused,0.0
+looped_hierarchical,1,"[('in', 'in0'), ('in0', 'in01'), ('in1', 'in10'), ('in1', 'in11')]",0.048394353005380454,100,70.9918761253357
+looped_hierarchical,2,"[('in', 'in0'), ('in0', 'in01'), ('in1', 'in10'), ('in1', 'in11')]",0.05382767310359123,100,69.68922328948975
+grid_lattice,0,"[('in', 'mid11'), ('in', 'mid8'), ('mid4', 'in'), ('out6', 'mid14')]",0.05431827674653111,reused,0.0
+grid_lattice,1,"[('in', 'mid11'), ('in', 'mid8'), ('mid4', 'in'), ('out6', 'mid14')]",0.0524398839060269,100,78.03838324546814
+grid_lattice,2,"[('in', 'mid11'), ('in', 'mid8'), ('mid4', 'in'), ('out6', 'mid14')]",0.05490994565068417,100,72.76984405517578

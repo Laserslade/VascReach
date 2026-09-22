@@ -131,6 +131,44 @@ def rescale_to_volume(G: nx.Graph, target_volume: float) -> nx.Graph:
     return G
 
 
+FAMILY_VARIANT_OFFSET = {
+    "symmetric_tree": 0,
+    "murray_tree": 100000,
+    "looped_hierarchical": 200000,
+    "grid_lattice": 300000,
+}
+
+
+def build_family_variant(family_name: str, variant_seed: int, target_volume: float,
+                          jitter_frac: float = 0.15) -> nx.Graph:
+    G = FAMILY_BUILDERS[family_name]()
+    if variant_seed != 0:
+        rng = np.random.default_rng(
+            2_000_000 + variant_seed * 100000 + FAMILY_VARIANT_OFFSET[family_name]
+        )
+        for u, v, data in G.edges(data=True):
+            factor = 1.0 + rng.uniform(-jitter_frac, jitter_frac)
+            data["length"] = data["length"] * factor
+            data["resistance"] = net.hagen_poiseuille_resistance(
+                G.graph["mu"], data["length"], data["radius"]
+            )
+            data["resistance0"] = data["resistance"]
+    rescale_to_volume(G, target_volume)
+    return G
+
+
+def build_pilot_networks(n_variants: int = 3, target_volume: float | None = None) -> dict:
+    base, tv = build_all_families()
+    if target_volume is None:
+        target_volume = tv
+    pilots = {}
+    for family in FAMILY_BUILDERS:
+        for variant in range(n_variants):
+            G = build_family_variant(family, variant, target_volume)
+            pilots[(family, variant)] = G
+    return pilots, target_volume
+
+
 def build_all_families(n_outlets: int = 8, target_volume: float | None = None) -> dict:
     raw = {name: builder(n_outlets) for name, builder in FAMILY_BUILDERS.items()}
     if target_volume is None:
