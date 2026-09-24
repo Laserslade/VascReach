@@ -1,0 +1,13 @@
+net_id,regime,seed,cycle_rank
+tree_000,tree,1,0
+tree_012,tree,13,0
+tree_024,tree,25,0
+loopy_hierarchical_011,loopy_hierarchical,100012,2
+loopy_hierarchical_008,loopy_hierarchical,100009,6
+loopy_hierarchical_015,loopy_hierarchical,100016,8
+lattice_007,lattice,200008,8
+lattice_017,lattice,200018,12
+lattice_020,lattice,200021,19
+random_spatial_013,random_spatial,300014,0
+random_spatial_017,random_spatial,300018,8
+random_spatial_005,random_spatial,300006,18
