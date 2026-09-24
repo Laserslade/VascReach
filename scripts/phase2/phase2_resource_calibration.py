@@ -3,8 +3,8 @@ import os
 import csv
 import time
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "tests"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "tests"))
 
 import numpy as np
 
@@ -22,7 +22,7 @@ N_STARTS = 8
 
 
 def load_subset():
-    path = os.path.join(os.path.dirname(__file__), "..", "results", "phase2_budget_audit_subset.csv")
+    path = os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase2", "phase2_budget_audit_subset.csv")
     return [r["net_id"] for r in csv.DictReader(open(path))]
 
 
@@ -56,7 +56,7 @@ def run():
                 })
         print(f"{net_id} done, elapsed={time.time()-t0:.1f}s", flush=True)
 
-    out_path = os.path.join(os.path.dirname(__file__), "..", "results",
+    out_path = os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase2",
                              "phase2_resource_calibration.csv")
     with open(out_path, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["net_id", "K", "beta_label", "beta_value",

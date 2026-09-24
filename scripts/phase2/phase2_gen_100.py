@@ -2,7 +2,7 @@ import sys
 import os
 import csv
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 
 import numpy as np
 import networkx as nx
@@ -61,7 +61,7 @@ if __name__ == "__main__":
     networks, target_volume = build_ensemble_100()
     rows = compute_descriptors(networks, target_volume)
 
-    out_dir = os.path.join(os.path.dirname(__file__), "..", "results")
+    out_dir = os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase2")
     os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, "phase2_ensemble_100.csv"), "w", newline="") as f:
         fields = ["net_id", "regime", "seed", "n_internal", "retain_fraction", "N_V", "N_E",

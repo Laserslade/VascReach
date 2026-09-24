@@ -4,8 +4,8 @@ import csv
 import time
 import pickle
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "tests"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "tests"))
 
 import numpy as np
 
@@ -21,7 +21,7 @@ REGIME_ORDER = ["tree", "loopy_hierarchical", "lattice", "random_spatial"]
 
 
 def state_path():
-    d = os.path.join(os.path.dirname(__file__), "..", "results", "cache")
+    d = os.path.join(os.path.dirname(__file__), "..", "..", "results", "cache")
     os.makedirs(d, exist_ok=True)
     return os.path.join(d, "phase2_budget_audit_state.pkl")
 
@@ -40,7 +40,7 @@ def save_state(state):
 
 
 def load_subset():
-    path = os.path.join(os.path.dirname(__file__), "..", "results", "phase2_budget_audit_subset.csv")
+    path = os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase2", "phase2_budget_audit_subset.csv")
     return list(csv.DictReader(open(path)))
 
 

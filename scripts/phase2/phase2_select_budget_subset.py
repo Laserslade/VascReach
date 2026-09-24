@@ -33,10 +33,10 @@ def stratified_subset(rows, n_per_regime=3):
 
 if __name__ == "__main__":
     base = os.path.dirname(__file__)
-    rows = load_ensemble(os.path.join(base, "..", "results", "phase2_ensemble_100.csv"))
+    rows = load_ensemble(os.path.join(base, "..", "..", "results", "phase2", "phase2_ensemble_100.csv"))
     subset = stratified_subset(rows)
 
-    out_path = os.path.join(base, "..", "results", "phase2_budget_audit_subset.csv")
+    out_path = os.path.join(base, "..", "..", "results", "phase2", "phase2_budget_audit_subset.csv")
     with open(out_path, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["net_id", "regime", "seed", "cycle_rank"])
         w.writeheader()

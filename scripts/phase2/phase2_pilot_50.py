@@ -2,8 +2,8 @@ import sys
 import os
 import csv
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "tests"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "tests"))
 
 import numpy as np
 import networkx as nx
@@ -80,7 +80,7 @@ if __name__ == "__main__":
 
     rows, duplicates = compute_descriptors(networks, target_volume)
 
-    out_dir = os.path.join(os.path.dirname(__file__), "..", "results")
+    out_dir = os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase2")
     os.makedirs(out_dir, exist_ok=True)
     with open(os.path.join(out_dir, "phase2_pilot_50_descriptors.csv"), "w", newline="") as f:
         fields = ["mechanism", "seed", "n_internal", "retain_fraction", "N_V", "N_E",

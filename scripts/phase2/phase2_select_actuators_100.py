@@ -4,8 +4,8 @@ import csv
 import time
 import pickle
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "tests"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "tests"))
 
 import numpy as np
 
@@ -21,7 +21,7 @@ TIME_BUDGET = 250
 
 
 def state_path():
-    d = os.path.join(os.path.dirname(__file__), "..", "results", "cache")
+    d = os.path.join(os.path.dirname(__file__), "..", "..", "results", "cache")
     os.makedirs(d, exist_ok=True)
     return os.path.join(d, "phase2_actuator_selection_state.pkl")
 
@@ -40,7 +40,7 @@ def save_state(state):
 
 
 def load_ensemble():
-    path = os.path.join(os.path.dirname(__file__), "..", "results", "phase2_ensemble_100.csv")
+    path = os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase2", "phase2_ensemble_100.csv")
     return list(csv.DictReader(open(path)))
 
 

@@ -9,7 +9,7 @@ BUDGETS = [10, 25, 50, 100]
 
 
 def load_results():
-    path = os.path.join(os.path.dirname(__file__), "..", "results", "cache",
+    path = os.path.join(os.path.dirname(__file__), "..", "..", "results", "cache",
                          "phase2_budget_audit_state.pkl")
     with open(path, "rb") as f:
         state = pickle.load(f)
@@ -31,7 +31,7 @@ def analyze():
             rows.append({"net_id": net_id, "B": B, "mean_err": np.mean(errs),
                          "seed_spread": max(errs) - min(errs), "n_seeds": len(errs)})
 
-    out_path = os.path.join(os.path.dirname(__file__), "..", "results",
+    out_path = os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase2",
                              "phase2_budget_audit_analysis.csv")
     with open(out_path, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["net_id", "B", "mean_err", "seed_spread", "n_seeds"])

@@ -2,7 +2,7 @@ import sys
 import os
 import csv
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 
 import numpy as np
 import networkx as nx
@@ -77,10 +77,10 @@ def plot_example_layouts(outpath, target_volume):
 
 if __name__ == "__main__":
     base = os.path.dirname(__file__)
-    out_dir = os.path.join(base, "..", "figures")
+    out_dir = os.path.join(base, "..", "..", "figures", "phase2")
     os.makedirs(out_dir, exist_ok=True)
 
-    csv_path = os.path.join(base, "..", "results", "phase2_pilot_50_descriptors.csv")
+    csv_path = os.path.join(base, "..", "..", "results", "phase2", "phase2_pilot_50_descriptors.csv")
     plot_distributions(os.path.join(out_dir, "phase2_pilot_50_distributions.png"), csv_path)
 
     _, tv = can.build_all_families()

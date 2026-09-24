@@ -4,8 +4,8 @@ import csv
 import time
 import pickle
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "tests"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "tests"))
 
 import numpy as np
 
@@ -28,13 +28,13 @@ def net_id_seed(net_id):
 
 
 def state_path():
-    d = os.path.join(os.path.dirname(__file__), "..", "results", "cache")
+    d = os.path.join(os.path.dirname(__file__), "..", "..", "results", "cache")
     os.makedirs(d, exist_ok=True)
     return os.path.join(d, "phase2_eval_state.pkl")
 
 
 def csv_path():
-    return os.path.join(os.path.dirname(__file__), "..", "results", "phase2_eval_30x8.csv")
+    return os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase2", "phase2_eval_30x8.csv")
 
 
 def load_state():
@@ -51,12 +51,12 @@ def save_state(state):
 
 
 def load_ensemble():
-    path = os.path.join(os.path.dirname(__file__), "..", "results", "phase2_ensemble_100.csv")
+    path = os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase2", "phase2_ensemble_100.csv")
     return list(csv.DictReader(open(path)))
 
 
 def load_actuator_sets():
-    p = os.path.join(os.path.dirname(__file__), "..", "results", "cache",
+    p = os.path.join(os.path.dirname(__file__), "..", "..", "results", "cache",
                       "phase2_actuator_selection_state.pkl")
     with open(p, "rb") as f:
         state = pickle.load(f)

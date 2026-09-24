@@ -65,7 +65,7 @@ def compute_aac_table(rows, s_grid, network_ids):
 
 if __name__ == "__main__":
     base = os.path.dirname(__file__)
-    grid_path = os.path.join(base, "..", "results", "phase2_eval_30x8.csv")
+    grid_path = os.path.join(base, "..", "..", "results", "phase2", "phase2_eval_30x8.csv")
     rows = load_grid(grid_path)
 
     s_end, s_grid = determine_s_end(rows)
@@ -75,7 +75,7 @@ if __name__ == "__main__":
     network_ids = sorted(set(r["net_id"] for r in rows))
     aac = compute_aac_table(rows, s_grid, network_ids)
 
-    out_path = os.path.join(base, "..", "results", "phase2_aac_convergence.csv")
+    out_path = os.path.join(base, "..", "..", "results", "phase2", "phase2_aac_convergence.csv")
     with open(out_path, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["net_id", "AAC_10", "AAC_20", "AAC_30"])
         w.writeheader()

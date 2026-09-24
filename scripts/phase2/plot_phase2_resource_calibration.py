@@ -45,8 +45,8 @@ def plot(outpath, csv_path):
 
 if __name__ == "__main__":
     base = os.path.dirname(__file__)
-    csv_path = os.path.join(base, "..", "results", "phase2_resource_calibration.csv")
-    out_dir = os.path.join(base, "..", "figures")
+    csv_path = os.path.join(base, "..", "..", "results", "phase2", "phase2_resource_calibration.csv")
+    out_dir = os.path.join(base, "..", "..", "figures", "phase2")
     os.makedirs(out_dir, exist_ok=True)
     plot(os.path.join(out_dir, "phase2_resource_calibration.png"), csv_path)
     print("Chart saved")
