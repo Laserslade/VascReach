@@ -2,7 +2,7 @@ import sys
 import os
 import csv
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 
 import numpy as np
 
@@ -17,7 +17,7 @@ def tercile_of(rho):
 
 
 def load_delta_num():
-    path = os.path.join(os.path.dirname(__file__), "..", "results", "calibration_delta_num.csv")
+    path = os.path.join(os.path.dirname(__file__), "..", "..", "results", "calibration", "calibration_delta_num.csv")
     table = {}
     with open(path) as f:
         for r in csv.DictReader(f):
@@ -26,7 +26,7 @@ def load_delta_num():
 
 
 def load_grid():
-    path = os.path.join(os.path.dirname(__file__), "..", "results", "phase1a_dense_grid.csv")
+    path = os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase1a", "phase1a_dense_grid.csv")
     rows = []
     with open(path) as f:
         for r in csv.DictReader(f):
@@ -107,7 +107,7 @@ def classify():
 if __name__ == "__main__":
     primary, secondary, rays = classify()
 
-    out_dir = os.path.join(os.path.dirname(__file__), "..", "results")
+    out_dir = os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase1a")
 
     with open(os.path.join(out_dir, "phase1a_primary_events.csv"), "w", newline="") as f:
         fields = ["family", "variant", "direction_id", "rho_j", "E_j", "rho_k", "E_k"]

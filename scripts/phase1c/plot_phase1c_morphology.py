@@ -48,10 +48,10 @@ def plot_multifocal(outpath, csv_path):
 
 if __name__ == "__main__":
     base = os.path.dirname(__file__)
-    out_dir = os.path.join(base, "..", "figures")
+    out_dir = os.path.join(base, "..", "..", "figures", "phase1c")
     os.makedirs(out_dir, exist_ok=True)
     plot_morphology(os.path.join(out_dir, "phase1c_morphology.png"),
-                     os.path.join(base, "..", "results", "phase1c_morphology.csv"))
+                     os.path.join(base, "..", "..", "results", "phase1c", "phase1c_morphology.csv"))
     plot_multifocal(os.path.join(out_dir, "phase1c_multifocal_geometry.png"),
-                     os.path.join(base, "..", "results", "phase1c_multifocal_geometry.csv"))
+                     os.path.join(base, "..", "..", "results", "phase1c", "phase1c_multifocal_geometry.csv"))
     print("Charts saved")

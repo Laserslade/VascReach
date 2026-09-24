@@ -2,7 +2,7 @@ import sys
 import os
 import csv
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 
 import numpy as np
 
@@ -47,13 +47,13 @@ def aggregate(per_ray_I, keys_filter, s_grid):
 
 if __name__ == "__main__":
     base = os.path.dirname(__file__)
-    grid_path = os.path.join(base, "..", "results", "phase1a_dense_grid.csv")
+    grid_path = os.path.join(base, "..", "..", "results", "phase1a", "phase1a_dense_grid.csv")
     rays = load_rays(grid_path)
 
     s_grid = np.linspace(0.0, 0.5, 26)
     per_ray_I, families = interp_E_on_grid(rays, s_grid)
 
-    out_dir = os.path.join(base, "..", "results")
+    out_dir = os.path.join(base, "..", "..", "results", "phase1b")
 
     with open(os.path.join(out_dir, "phase1b_family_accessibility.csv"), "w", newline="") as f:
         w = csv.writer(f)

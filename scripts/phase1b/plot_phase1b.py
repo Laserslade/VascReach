@@ -71,9 +71,9 @@ def plot_n_valid(outpath, family_csv):
 
 if __name__ == "__main__":
     base = os.path.dirname(__file__)
-    fam_csv = os.path.join(base, "..", "results", "phase1b_family_accessibility.csv")
-    net_csv = os.path.join(base, "..", "results", "phase1b_network_accessibility.csv")
-    out_dir = os.path.join(base, "..", "figures")
+    fam_csv = os.path.join(base, "..", "..", "results", "phase1b", "phase1b_family_accessibility.csv")
+    net_csv = os.path.join(base, "..", "..", "results", "phase1b", "phase1b_network_accessibility.csv")
+    out_dir = os.path.join(base, "..", "..", "figures", "phase1b")
     os.makedirs(out_dir, exist_ok=True)
     plot(os.path.join(out_dir, "phase1b_accessibility_comparison.png"), fam_csv, net_csv)
     plot_n_valid(os.path.join(out_dir, "phase1b_n_valid.png"), fam_csv)

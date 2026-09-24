@@ -3,8 +3,9 @@ import os
 import csv
 import time
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "tests"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "tests"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "phase1a"))
 
 import numpy as np
 
@@ -28,7 +29,7 @@ def run():
     pilots, tv = can.build_pilot_networks()
     b = np.full(8, 1.0 / 8)
 
-    out_path = os.path.join(os.path.dirname(__file__), "..", "results", "phase1c_authority_sweep.csv")
+    out_path = os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase1c", "phase1c_authority_sweep.csv")
     f = open(out_path, "w", newline="")
     fields = ["family", "beta_label", "beta_value", "direction_id", "pattern_family",
               "rho", "s", "best_error", "I_001"]

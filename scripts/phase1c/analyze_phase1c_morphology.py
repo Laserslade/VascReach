@@ -2,7 +2,8 @@ import sys
 import os
 import csv
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "phase1a"))
 
 import numpy as np
 
@@ -83,18 +84,18 @@ def multifocal_geometry_table(rows):
 
 if __name__ == "__main__":
     base = os.path.dirname(__file__)
-    grid_path = os.path.join(base, "..", "results", "phase1a_dense_grid.csv")
+    grid_path = os.path.join(base, "..", "..", "results", "phase1a", "phase1a_dense_grid.csv")
     rows = load_grid(grid_path)
 
     morph = morphology_accessibility(rows)
-    with open(os.path.join(base, "..", "results", "phase1c_morphology.csv"), "w", newline="") as f:
+    with open(os.path.join(base, "..", "..", "results", "phase1c", "phase1c_morphology.csv"), "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["pattern_family", "rho", "A", "n"])
         w.writeheader()
         for r in morph:
             w.writerow(r)
 
     multi = multifocal_geometry_table(rows)
-    with open(os.path.join(base, "..", "results", "phase1c_multifocal_geometry.csv"), "w", newline="") as f:
+    with open(os.path.join(base, "..", "..", "results", "phase1c", "phase1c_multifocal_geometry.csv"), "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["family", "variant", "direction_id", "separation_over_dx",
                                            "width_over_dx", "E_at_rho0.2", "I_at_rho0.2"])
         w.writeheader()

@@ -4,8 +4,8 @@ import csv
 import time
 import pickle
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "tests"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "tests"))
 
 import numpy as np
 from scipy.optimize import differential_evolution, minimize
@@ -21,7 +21,7 @@ TIME_BUDGET = 250
 
 
 def state_path():
-    d = os.path.join(os.path.dirname(__file__), "..", "results", "cache")
+    d = os.path.join(os.path.dirname(__file__), "..", "..", "results", "cache")
     os.makedirs(d, exist_ok=True)
     return os.path.join(d, "phase1a_verify_state.pkl")
 
@@ -41,12 +41,12 @@ def save_state(state):
 
 def build_task_list():
     tasks = set()
-    with open(os.path.join(os.path.dirname(__file__), "..", "results", "phase1a_primary_events.csv")) as f:
+    with open(os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase1a", "phase1a_primary_events.csv")) as f:
         for r in csv.DictReader(f):
             tasks.add((r["family"], int(r["variant"]), int(r["direction_id"]), round(float(r["rho_j"]), 3)))
             tasks.add((r["family"], int(r["variant"]), int(r["direction_id"]), round(float(r["rho_k"]), 3)))
 
-    with open(os.path.join(os.path.dirname(__file__), "..", "results", "phase1a_secondary_events.csv")) as f:
+    with open(os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase1a", "phase1a_secondary_events.csv")) as f:
         for r in csv.DictReader(f):
             if r["escalate"] == "True":
                 tasks.add((r["family"], int(r["variant"]), int(r["direction_id"]), round(float(r["rho_j"]), 3)))

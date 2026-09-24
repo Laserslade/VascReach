@@ -2,11 +2,11 @@ import sys
 import os
 import csv
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 
 
 def write_decision():
-    out_path = os.path.join(os.path.dirname(__file__), "..", "results", "phase1a_decision.csv")
+    out_path = os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase1a", "phase1a_decision.csv")
     rows = [
         {"item": "total_rays", "value": "240"},
         {"item": "total_severity_points", "value": "9600"},

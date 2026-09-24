@@ -4,8 +4,8 @@ import csv
 import time
 import pickle
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "tests"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "tests"))
 
 import numpy as np
 
@@ -44,13 +44,13 @@ NETWORK_SEED_OFFSET = {
 
 
 def state_path():
-    d = os.path.join(os.path.dirname(__file__), "..", "results", "cache")
+    d = os.path.join(os.path.dirname(__file__), "..", "..", "results", "cache")
     os.makedirs(d, exist_ok=True)
     return os.path.join(d, "phase1a_state.pkl")
 
 
 def csv_path():
-    return os.path.join(os.path.dirname(__file__), "..", "results", "phase1a_dense_grid.csv")
+    return os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase1a", "phase1a_dense_grid.csv")
 
 
 def load_state():

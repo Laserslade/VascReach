@@ -3,8 +3,8 @@ import os
 import csv
 import time
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "tests"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "tests"))
 
 import numpy as np
 
@@ -55,7 +55,7 @@ def run():
             print(f"{family} variant {variant}: candidate={candidate}, "
                   f"mean_error={mean_error:.5f}, elapsed={elapsed:.1f}s")
 
-    out_path = os.path.join(os.path.dirname(__file__), "..", "results", "pilot_actuator_sets.csv")
+    out_path = os.path.join(os.path.dirname(__file__), "..", "..", "results", "phase1a", "pilot_actuator_sets.csv")
     with open(out_path, "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["family", "variant", "candidate", "mean_error",
                                            "n_evaluated", "elapsed"])
